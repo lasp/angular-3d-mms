@@ -1,0 +1,15 @@
+{
+    "extends": ["../tslint.json"],
+    "rules": {
+        "component-selector": [
+            true,
+            "element", ["app", "lasp"],
+            "kebab-case"
+        ],
+        "directive-selector": [
+            true,
+            "attribute", ["app", "lasp"],
+            "camelCase"
+        ]
+    }
+}

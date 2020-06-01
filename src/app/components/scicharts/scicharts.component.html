@@ -1,0 +1,6 @@
+<mat-grid-list [cols]="1" rowHeight="400px" gutterSize="1em">
+    <mat-grid-tile style="overflow:visible" *ngFor="let plot of plotList; let i = index">
+        <sci-charts *ngIf="plotList.length > 1" class="mat-elevation-z2" [datasets]="plot.datasets" [range]="range" [uiOptions]="uiOptions" (closeChart)="closeChart($event)" id="i">
+        </sci-charts>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,80 @@
+mat-form-field {
+    left: 15px;
+    top: 10px;
+    width: 270px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+mat-select {
+    width: 270px;
+}
+
+.reload-button {
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.available-dates {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+}
+
+.error-header {
+    font-family: "Arial", sans-serif;
+    color: rgb(221, 44, 0);
+    font-size: 14px;
+    margin-left: 15px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.error-messages {
+    font-family: "Arial", sans-serif;
+    color: rgb(221, 44, 0);
+    font-size: 13px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.color-form-field {
+    padding-top: 0px;
+    margin-top: -40px;
+}
+
+.dataSelector {
+    padding-bottom: 0px;
+}
+
+.bluered {
+    background:  url( "/assets/images/bluered.png" ) center / contain no-repeat;
+    white-space: nowrap;
+}
+
+.cool {
+    background:  url( "/assets/images/cool.png" )  center / contain no-repeat;
+    white-space: nowrap;
+}
+
+.inferno {
+    background:  url( "/assets/images/inferno.png" )  center / contain no-repeat;
+    white-space: nowrap;
+}
+
+.plasma {
+    background:  url( "/assets/images/plasma.png" )  center / contain no-repeat;
+    white-space: nowrap;
+}
+
+.spring {
+    background:  url( "/assets/images/spring.png" )  center / contain no-repeat;
+    white-space: nowrap;
+}
+
+.viridis {
+    background:  url( "/assets/images/viridis.png" )  center / contain no-repeat;
+    white-space: nowrap;
+}

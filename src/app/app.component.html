@@ -1,0 +1,50 @@
+<!-- create viewer -->
+<mat-sidenav-container class="all-content">
+    <!-- control panel section -->
+    <mat-sidenav *ngIf="onDesktop && visibility.controlPanel" mode="side" style="width:300px;" opened>
+        <app-control-panel (plotButtonHit)="plotButtonHit( $event )">
+        </app-control-panel>
+    </mat-sidenav>
+
+    <mat-sidenav *ngIf="!onDesktop && visibility.controlPanel" mode="side" style="width:100%;" opened>
+        <button mat-raised-button class="panel-button--mobile" (click)="panelButtonControl()" color="primary">Hide Control Panel</button>
+        <app-control-panel (plotButtonHit)="plotButtonHit( $event )">
+        </app-control-panel>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <as-split unit="percent" [direction]="direction" (dragEnd)="dragEnd($event)" #split="asSplit">
+            <!-- cesium viewer section -->
+            <as-split-area class="cesium-split-area" [size]="sizes.cesiumViewer" minSize="30" [visible]="visibility.cesiumVis" #cesiumViewer="asSplitArea">
+                <div id="cesium-container" class="cesium-main-viewer" *ngIf="onDesktop; else elseBlock">
+                    <button mat-raised-button class="formation-button" (click)="formationButtonControl()" color="primary">{{formationStatus}}</button>
+                    <div *ngIf="visibility.showPlotButton">
+                        <button mat-raised-button class="scichart-button" (click)="plotButtonControl()" color="primary">{{sciChartStatus}}</button>
+                    </div>
+                    <button mat-raised-button class="panel-button" (click)="panelButtonControl()" color="primary">{{controlPanelStatus}}</button>
+                </div>
+                <div id="formation-container" class="formation-viewer" *ngIf="visibility.formation && onDesktop"></div>
+                <ng-template #elseBlock>
+                        <button mat-raised-button *ngIf="visibility.showPlotButton" class="panel-button--mobile" (click)="plotButtonControl()" color="primary">Show Plots</button>
+                    <div id="cesium-container" class="cesium-viewer">
+                        <button mat-raised-button class="formation-button" (click)="formationButtonControl()" color="primary">{{formationStatus}}</button>
+                        <button mat-raised-button class="panel-button" (click)="panelButtonControl()" color="primary">Show Control Panel</button>
+                    </div>
+                    <div id="formation-container-mobile" class="cesium-viewer" *ngIf="visibility.formation"></div>
+                </ng-template>
+                <app-cesium-initializer *ngIf="visibility.cesiumVis"></app-cesium-initializer>
+                <div *ngIf="visibility.loadingIcon" class="loading-indicator">
+                    <mat-spinner></mat-spinner>
+                </div>
+                <div *ngIf="visibility.formationIcon && onDesktop" class="formation-indicator">
+                        <mat-spinner></mat-spinner>
+                </div>
+            </as-split-area>
+            <!-- scicharts section-->
+            <as-split-area [size]="sizes.scichartsViewer" [visible]="visibility.scichartsVis" #scichartsViewer="asSplitArea">
+                <button mat-raised-button *ngIf="!onDesktop" class="panel-button--mobile" (click)="plotButtonControl()" color="primary">Hide Plots</button>
+                <app-scicharts></app-scicharts>
+            </as-split-area>
+        </as-split>
+    </mat-sidenav-content>
+</mat-sidenav-container>
